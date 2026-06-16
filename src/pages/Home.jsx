@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+const API_URL = import.meta.env.VITE_API_URL;
 
 import {
     ToastContainer,
@@ -46,7 +47,7 @@ function Home() {
             setLoading(true);
 
             const res = await axios.get(
-                "http://localhost:3007/receipes"
+                  `${API_URL}/receipes`
             );
 
             setRecipes(res.data);
@@ -107,8 +108,7 @@ function Home() {
             if (editingId) {
 
                 await axios.put(
-
-                    `http://localhost:3007/receipes/${editingId}`,
+  `${API_URL}/receipes/${editingId}`,
 
                     {
                         ...formData,
@@ -134,29 +134,23 @@ function Home() {
 
             } else {
 
-                await axios.post(
+               await axios.post(
 
-                    "http://localhost:3007/receipes",
+    `${API_URL}/receipes`,
 
-                    {
-                        ...formData,
+    {
+        ...formData,
 
-                        ingredients:
-                            formData.ingredients.split(",")
-                    },
+        ingredients:
+            formData.ingredients.split(",")
+    },
 
-                    {
-                        headers: {
-
-                            Authorization:
-                                `Bearer ${token}`
-                        }
-                    }
-                );
-
-                toast.success(
-                    "Recipe Added"
-                );
+    {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+);
             }
 
             setFormData({
@@ -192,7 +186,7 @@ function Home() {
 
             await axios.delete(
 
-                `http://localhost:3007/receipes/${id}`,
+                `${API_URL}/receipes/${id}`,
 
                 {
                     headers: {

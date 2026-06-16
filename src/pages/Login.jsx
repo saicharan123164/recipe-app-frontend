@@ -2,22 +2,20 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Login() {
 
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-
         email: "",
         password: ""
     });
 
     const handleChange = (e) => {
-
         setFormData({
-
             ...formData,
-
             [e.target.name]: e.target.value
         });
     };
@@ -29,16 +27,12 @@ function Login() {
         try {
 
             const res = await axios.post(
-
-                "http://localhost:3007/users/login",
-
+                `${API_URL}/users/login`,
                 formData
             );
 
             localStorage.setItem(
-
                 "token",
-
                 res.data.token
             );
 
@@ -55,9 +49,7 @@ function Login() {
     };
 
     return (
-
         <div>
-
             <h1>Login</h1>
 
             <form onSubmit={handleSubmit}>
@@ -85,7 +77,6 @@ function Login() {
                 </button>
 
             </form>
-
         </div>
     );
 }
