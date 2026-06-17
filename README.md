@@ -1,106 +1,143 @@
-# 🍴 Recipe App Frontend
+# 🍴 Recipe App
 
-A modern and responsive Recipe Management Application frontend built using React.js.  
-This application allows users to explore, search, add, edit, and manage recipes with authentication and protected operations integrated with a Node.js + Express backend API.
+A Full Stack Recipe Management Application built using React.js, Node.js, Express.js, and MongoDB Atlas.
+
+This application allows users to register, log in securely using JWT authentication, and manage recipes through a modern and responsive interface.
+
+---
+
+# 🌐 Live Demo
+
+### Frontend (Vercel)
+
+https://recipe-app-frontend-mu-murex.vercel.app/
+
+### Backend API (Render)
+
+https://recipe-app-backend-s8nx.onrender.com/
+
+---
+
+# 📂 GitHub Repositories
+
+### Frontend Repository
+
+https://github.com/saicharan123164/recipe-app-frontend
+
+### Backend Repository
+
+https://github.com/saicharan123164/recipe-app-backend
 
 ---
 
 # 🚀 Features
 
 ## 🔐 Authentication
-- User Registration
-- User Login
-- JWT Token Based Authentication
-- Protected Recipe Operations
-- Logout Functionality
+
+* User Registration
+* User Login
+* JWT Authentication
+* Protected Routes
+* Logout Functionality
 
 ---
 
 ## 🍽 Recipe Management
-- Add New Recipes
-- Edit Existing Recipes
-- Delete Recipes
-- View All Recipes
-- Search Recipes
-- Category-wise Recipe Display
+
+* Add New Recipes
+* Edit Existing Recipes
+* Delete Recipes
+* View All Recipes
+* Search Recipes
+* Category-wise Filtering
 
 ---
 
 ## ❤️ User Experience Features
-- Dark Mode / Light Mode
-- Favorite Recipes
-- Responsive UI Design
-- Loading Indicators
-- Toast Notifications
-- Hover Effects and Modern UI Cards
+
+* Dark Mode / Light Mode
+* Favorite Recipes
+* Responsive UI Design
+* Loading Indicators
+* Toast Notifications
+* Hover Effects and Modern UI Cards
 
 ---
 
 ## 📂 Recipe Categories
-Recipes are organized separately into:
-- Veg Recipes
-- Non-Veg Recipes
-- Fast Food Recipes
+
+Recipes are organized into:
+
+* Veg Recipes
+* Non Veg Recipes
+* Fast Food Recipes
 
 ---
 
-# 🛠️ Tech Stack
+# 🛠 Tech Stack
 
-## Frontend Technologies
-- React.js
-- Axios
-- React Hooks
-- React Toastify
-- CSS Inline Styling
+## Frontend
+
+* React.js
+* Vite
+* Axios
+* React Router DOM
+* React Toastify
+
+## Backend
+
+* Node.js
+* Express.js
+* MongoDB Atlas
+* Mongoose
+* JWT Authentication
+* BcryptJS
+
+## Deployment
+
+* Vercel (Frontend Hosting)
+* Render (Backend Hosting)
+* MongoDB Atlas (Cloud Database)
 
 ---
 
 # 📁 Project Structure
 
 ```txt
+Frontend
 src/
- ┣ components/
  ┣ pages/
  ┣ App.jsx
  ┣ main.jsx
  ┗ Home.jsx
+
+Backend
+src/
+ ┣ controllers/
+ ┣ middleware/
+ ┣ models/
+ ┣ routes/
+ ┣ dbconnection.js
+ ┗ index.js
 ```
 
 ---
 
-# ⚙️ Installation and Setup
+# ⚙️ Installation & Setup
 
-## 1️⃣ Clone Repository
+## Clone Frontend Repository
 
 ```bash
-git clone <your-frontend-repo-url>
+git clone https://github.com/saicharan123164/recipe-app-frontend.git
 ```
-
----
-
-## 2️⃣ Navigate to Project Folder
 
 ```bash
 cd recipe-app-frontend
-```
-
----
-
-## 3️⃣ Install Dependencies
-
-```bash
 npm install
-```
-
----
-
-## 4️⃣ Run Development Server
-
-```bash
 npm run dev
 ```
 
-Application runs on:
+Runs on:
 
 ```txt
 http://localhost:5173
@@ -108,41 +145,58 @@ http://localhost:5173
 
 ---
 
-# 🔗 Backend Connection
+## Clone Backend Repository
 
-This frontend communicates with the backend API running on:
+```bash
+git clone https://github.com/saicharan123164/recipe-app-backend.git
+```
+
+```bash
+cd recipe-app-backend
+npm install
+npm start
+```
+
+Runs on:
 
 ```txt
 http://localhost:3007
 ```
 
-Make sure backend server is running before starting frontend.
+---
+
+# 🔗 API Endpoints
+
+## User APIs
+
+| Method | Endpoint        | Description   |
+| ------ | --------------- | ------------- |
+| POST   | /users/register | Register User |
+| POST   | /users/login    | Login User    |
+| GET    | /users          | Get All Users |
+| DELETE | /users/:id      | Delete User   |
 
 ---
 
-# 📡 API Integration
+## Recipe APIs
 
-The frontend integrates with backend endpoints for:
-
-| Method | Endpoint | Purpose |
-|---|---|---|
-| POST | /users/register | Register User |
-| POST | /users/login | Login User |
-| GET | /receipes | Get All Recipes |
-| POST | /receipes | Add Recipe |
-| PUT | /receipes/:id | Update Recipe |
-| DELETE | /receipes/:id | Delete Recipe |
+| Method | Endpoint      | Description      |
+| ------ | ------------- | ---------------- |
+| GET    | /receipes     | Get All Recipes  |
+| GET    | /receipes/:id | Get Recipe By ID |
+| POST   | /receipes     | Add Recipe       |
+| PUT    | /receipes/:id | Update Recipe    |
+| DELETE | /receipes/:id | Delete Recipe    |
 
 ---
 
 # 🔒 Authentication Flow
 
-1. User logs in
-2. Backend generates JWT token
-3. Token is stored in localStorage
-4. Protected requests include Authorization header
-
-Example:
+1. User registers an account
+2. User logs in
+3. Backend generates JWT Token
+4. Token is stored in Local Storage
+5. Protected API requests include:
 
 ```txt
 Authorization: Bearer <token>
@@ -150,65 +204,71 @@ Authorization: Bearer <token>
 
 ---
 
-# 🎨 UI Features
+# 🧪 Tested Functionalities
 
-- Modern Responsive Design
-- Dynamic Recipe Cards
-- Smooth Hover Effects
-- Search Filtering
-- Dark Mode Toggle
-- Toast Notifications
+✅ User Registration
 
----
+✅ User Login
 
-# 🧪 Testing Features
+✅ JWT Authentication
 
-The following functionalities were tested:
+✅ Protected Routes
 
-✅ User Login  
-✅ User Registration  
-✅ JWT Authentication  
-✅ Add Recipe  
-✅ Update Recipe  
-✅ Delete Recipe  
-✅ Search Recipes  
-✅ Logout  
-✅ Protected Routes  
-✅ Error Handling  
+✅ Add Recipe
+
+✅ Edit Recipe
+
+✅ Delete Recipe
+
+✅ Search Recipes
+
+✅ Category Filtering
+
+✅ Logout
+
+✅ Error Handling
 
 ---
 
-# 🌟 Future Improvements
+# 🌟 Future Enhancements
 
-- Recipe Image Upload
-- User Profile Page
-- Comments and Ratings
-- AI Recipe Suggestions
-- Pagination
-- Admin Dashboard
-- Cloud Deployment
+* Recipe Image Upload
+* User Profiles
+* Recipe Ratings & Reviews
+* Comments Section
+* AI Recipe Suggestions
+* Pagination
+* Admin Dashboard
+* Advanced Search Filters
 
 ---
 
 # 📌 Best Practices Followed
 
-- Component Reusability
-- State Management using React Hooks
-- API Separation using Axios
-- Protected API Requests
-- Responsive Layout Design
-- Clean Folder Structure
-- Proper Error Handling
-- JWT Based Authorization
+* REST API Architecture
+* JWT Authentication
+* MVC Pattern
+* React Hooks
+* Component Reusability
+* Responsive Design
+* Error Handling
+* Secure Password Hashing
+* Environment Variables
+* Cloud Deployment
 
 ---
 
 # 👨‍💻 Author
 
-Sai Charan
+**Sai Charan**
+
+### Connect with Me
+
+GitHub:
+https://github.com/saicharan123164
 
 ---
 
 # 📜 License
 
-This project is developed for educational and portfolio purposes.
+This project is developed for educational, learning, and portfolio purposes.
